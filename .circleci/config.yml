@@ -16,6 +16,15 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
+          command: "echo Hello, World!"
+
+  say-hello-2:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+          name: "Say hello 2"
           command: "echo Hello, World2!"
 
 # Orchestrate jobs using workflows
@@ -24,3 +33,6 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+  say-hello-workflow-2:
+    jobs:
+      - say-hello-2
