@@ -26,6 +26,20 @@ jobs:
       - run:
           name: "Say hello 2"
           command: "echo Hello, World2!"
+      - run:
+          name: "Say hello さん"
+          command: "echo Hello, Worldさん!"
+  
+  mac-tesuto:
+    macos:
+      xcode: 14.2.0
+    resource_class: macos.x86.medium.gen2
+    environment:
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    steps:
+      - checkout
+      - run: brew install wget
+      - run: "Owarimashita"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -33,6 +47,7 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-  say-hello-workflow-2:
-    jobs:
       - say-hello-2
+  mac-workflow:
+    jobs:
+      - mac-tesuto
