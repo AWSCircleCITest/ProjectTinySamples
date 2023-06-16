@@ -41,6 +41,17 @@ jobs:
       - run: brew install wget
       - run: "echo 'Owarimashita'"
 
+  mac-tesuto-arm:
+    macos:
+      xcode: 14.3.0
+    resource_class: macos.m1.large.gen1
+    environment:
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    steps:
+      - checkout
+      - run: brew install wget
+      - run: "echo 'Owarimashita ARM'"
+
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
@@ -51,3 +62,4 @@ workflows:
   mac-workflow:
     jobs:
       - mac-tesuto
+      - mac-tesuto-arm
