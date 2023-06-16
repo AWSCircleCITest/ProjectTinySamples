@@ -39,7 +39,7 @@ jobs:
     steps:
       - checkout
       - run: brew install wget
-      - run: "Owarimashita"
+      - run: "echo 'Owarimashita'"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
